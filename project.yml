@@ -1,0 +1,54 @@
+name: MediaBar
+options:
+  bundleIdPrefix: com.krzysztof
+  createIntermediateGroups: true
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+targets:
+  MediaBar:
+    type: application
+    platform: macOS
+    sources:
+      - path: MediaBar
+        excludes:
+          - Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.krzysztof.MediaBar
+        PRODUCT_MODULE_NAME: MediaBar
+        PRODUCT_NAME: Media Bar
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: MediaBar/Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: Media Bar
+        INFOPLIST_KEY_NSAppIntentsEnabled: NO
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        CODE_SIGN_ENTITLEMENTS: MediaBar/MediaBar.entitlements
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGNING_ALLOWED: YES
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_DEBUG_DYLIB: NO
+        GENERATE_APPINTENTS_METADATA: NO
+        COMBINE_HIDPI_IMAGES: YES
+        SWIFT_EMIT_LOC_STRINGS: NO
+    info:
+      path: MediaBar/Info.plist
+      properties:
+        LSUIElement: true
+        CFBundleDisplayName: Media Bar
+        NSAppIntentsEnabled: false
+schemes:
+  MediaBar:
+    build:
+      targets:
+        MediaBar: all
+    run:
+      config: Debug
+    archive:
+      config: Release
